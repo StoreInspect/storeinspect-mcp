@@ -1,6 +1,6 @@
 # StoreInspect MCP example prompts
 
-These prompts are starting points for StoreInspect MCP clients. Ask the client to call `list_taxonomy` before guessing filter values.
+Copy and adapt these prompts. For searches, ask the client to call `list_taxonomy` instead of guessing filter values.
 
 ## Find qualified Shopify stores
 
@@ -11,7 +11,7 @@ Use StoreInspect to find up to 25 US beauty stores with 50K+ monthly traffic tha
 ## Find prospects missing an app
 
 ```text
-Use StoreInspect to find Shopify stores in food and beverage that have meaningful traffic but do not use an age-verification app. First check the taxonomy for supported categories and app names.
+Use StoreInspect to find Shopify stores in food and beverage with at least 10K monthly traffic that do not use an age-verification app. First check the taxonomy for supported categories and app names.
 ```
 
 ## Enrich known accounts
@@ -28,7 +28,7 @@ Use StoreInspect to search for founder, CEO, ecommerce, or marketing decision-ma
 
 ## Reveal selected contacts
 
-Reveals can spend contact credits. Replace the example IDs with IDs returned by `search_shopify_contacts` and confirm the exact selection before asking the client to reveal them.
+Revealing a contact spends credits. Replace the example IDs with IDs from `search_shopify_contacts`. Check the exact list with me before calling `reveal_contacts`.
 
 ```text
 Reveal these StoreInspect contact IDs: ct_example_one and ct_example_two. I confirm spending credits for exactly these contacts.

@@ -2,27 +2,27 @@
 
 # StoreInspect MCP
 
-StoreInspect MCP connects AI clients to Shopify store and contact intelligence through a hosted OAuth server.
+StoreInspect MCP gives AI clients access to StoreInspect's Shopify store and contact data through OAuth.
 
-Use it to search Shopify stores by market, traffic, revenue, apps, pixels, themes, ads, and contact availability; enrich known domains; preview decision-makers; and reveal selected contact channels with explicit approval.
+Search stores by market, traffic, revenue, apps, pixels, themes, ads, or contact availability. You can also enrich known domains, preview matching contacts, and reveal selected contact details after approval.
 
-StoreInspect MCP is a hosted remote service. This repository contains its public metadata, client configuration, and usage examples. It does not contain the proprietary server implementation, and there is no local server package to install.
+StoreInspect runs the MCP server. This repository contains public metadata, setup examples, and prompts. The server source is private, and there is nothing to install locally.
 
 ## Connect
 
-Most MCP clients use:
+Use this URL in most MCP clients:
 
 ```text
 https://mcp.storeinspect.com/mcp
 ```
 
-ChatGPT uses the policy-compatible data-only endpoint:
+For ChatGPT, use the data-only endpoint:
 
 ```text
 https://mcp.storeinspect.com/openai
 ```
 
-Authentication uses OAuth. Do not paste StoreInspect API keys into AI clients.
+Both endpoints use OAuth. Never paste StoreInspect API keys into an AI client.
 
 ### Claude
 
@@ -112,15 +112,15 @@ Use StoreInspect to enrich allbirds.com, gymshark.com, and tentree.com. Return t
 Search for founder or ecommerce decision-maker contacts at those stores. Do not reveal contact channels yet.
 ```
 
-More complete workflows are available in [examples/prompts.md](examples/prompts.md).
+See [examples/prompts.md](examples/prompts.md) for more workflows.
 
 ## Safety and access
 
 - Store and contact tools require an active paid StoreInspect plan.
 - Contact previews keep email, phone, and LinkedIn channels masked.
 - `reveal_contacts` requires `confirm_spend_credits: true` and can spend shared StoreInspect contact credits.
-- Billing tools create human-confirmed Stripe-hosted links; they never directly change or charge a subscription.
-- StoreInspect MCP queries the existing StoreInspect intelligence index. It does not live-scan new domains during a request.
+- Billing tools return Stripe-hosted links. A person must confirm any subscription change in Stripe.
+- StoreInspect MCP searches the existing StoreInspect index. A request does not trigger a live scan.
 
 ## Resources
 
@@ -132,7 +132,7 @@ More complete workflows are available in [examples/prompts.md](examples/prompts.
 - [Official MCP Registry entry](https://registry.modelcontextprotocol.io/v0.1/servers?search=com.storeinspect%2Fmcp)
 - [StoreInspect](https://storeinspect.com)
 
-For support, email [support@storeinspect.com](mailto:support@storeinspect.com) or open an issue for non-sensitive documentation and configuration problems.
+Email [support@storeinspect.com](mailto:support@storeinspect.com) for support. Open a GitHub issue for non-sensitive setup or documentation problems.
 
 ## License
 

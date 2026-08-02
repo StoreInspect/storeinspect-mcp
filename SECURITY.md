@@ -1,6 +1,6 @@
 # Security
 
-StoreInspect MCP is a hosted OAuth service. This repository contains public metadata and configuration examples, not the server implementation.
+StoreInspect hosts the MCP server and uses OAuth. This repository only contains public metadata and setup examples. The server source is private.
 
 Do not report security vulnerabilities through a public GitHub issue. Email [support@storeinspect.com](mailto:support@storeinspect.com) with:
 
@@ -11,4 +11,4 @@ Do not report security vulnerabilities through a public GitHub issue. Email [sup
 
 Do not include OAuth tokens, API keys, contact data, or other secrets in the report unless StoreInspect provides a secure method for sharing them.
 
-For the public authentication and permission model, see the [StoreInspect MCP security documentation](https://storeinspect.com/docs/mcp/security).
+For details on OAuth and permissions, see the [StoreInspect MCP security documentation](https://storeinspect.com/docs/mcp/security).
