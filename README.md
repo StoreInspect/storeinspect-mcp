@@ -22,16 +22,18 @@ For ChatGPT, use the data-only endpoint:
 https://mcp.storeinspect.com/openai
 ```
 
-Both endpoints use OAuth. Never paste StoreInspect API keys into an AI client.
+All endpoints use OAuth. Never paste StoreInspect API keys into an AI client.
 
 ### Claude
 
-Add a custom connector using `https://mcp.storeinspect.com/mcp`, then sign in to StoreInspect when prompted.
+Add a custom connector using `https://mcp.storeinspect.com/claude`, then sign in to StoreInspect when prompted. Free accounts can use the Claude connector preview.
+
+For guided prospecting, store research, and domain enrichment, see the [StoreInspect Workflows plugin](plugins/storeinspect-workflows).
 
 ### Claude Code
 
 ```bash
-claude mcp add --transport http storeinspect https://mcp.storeinspect.com/mcp
+claude mcp add --transport http storeinspect https://mcp.storeinspect.com/claude
 ```
 
 Open Claude Code, run `/mcp`, and complete the StoreInspect OAuth flow.
@@ -96,7 +98,7 @@ The general MCP endpoint exposes these tools:
 | `create_subscription_link`   | Create a short-lived Stripe-hosted subscription or upgrade link.     |
 | `create_billing_portal_link` | Create a short-lived Stripe-hosted account-management link.          |
 
-Search tools return at most 25 records per call. ChatGPT's `/openai` endpoint excludes the three billing tools.
+Check `get_usage` and each tool's schema for the endpoint's current per-call limits. ChatGPT's `/openai` endpoint excludes the three billing tools.
 
 ## Example prompts
 
@@ -116,7 +118,7 @@ See [examples/prompts.md](examples/prompts.md) for more workflows.
 
 ## Safety and access
 
-- Store and contact tools require an active paid StoreInspect plan.
+- The general `/mcp` endpoint requires an active paid StoreInspect plan for store and contact tools. Claude and ChatGPT offer a Free account search preview; contact reveals use the account's normal credits.
 - Contact previews keep email, phone, and LinkedIn channels masked.
 - `reveal_contacts` requires `confirm_spend_credits: true` and can spend shared StoreInspect contact credits.
 - Billing tools return Stripe-hosted links. A person must confirm any subscription change in Stripe.
