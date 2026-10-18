@@ -1,0 +1,139 @@
+{
+  "tools": [
+    {
+      "name": "get_usage",
+      "description": "Read current StoreInspect plan, quotas and remaining contact credits.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "list_taxonomy",
+      "description": "List valid StoreInspect category, country, technology and role values.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "get_shopify_store",
+      "description": "Return one indexed Shopify store profile by domain.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "domain"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "search_shopify_stores",
+      "description": "Search indexed Shopify stores. Filters are under filters; countries use ISO codes; apps.none is no app detected.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filters": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "cursor": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "filters"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "enrich_shopify_domains",
+      "description": "Return indexed store profiles for up to 10 domains, including not_found rows. Does not include contact previews.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "domains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "domains"
+        ],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "search_shopify_contacts",
+      "description": "Search masked contact previews. Store domains under store.domains, roles under person.roles_any; max_contacts_per_store defaults to 1.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "store": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "person": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "max_contacts_per_store": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "cursor": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "reveal_contacts",
+      "description": "Spend contact credits to reveal selected preview IDs. Requires explicit user approval of credit spend.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "contact_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "confirm_spend_credits": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "contact_ids",
+          "confirm_spend_credits"
+        ],
+        "additionalProperties": false
+      }
+    }
+  ]
+}

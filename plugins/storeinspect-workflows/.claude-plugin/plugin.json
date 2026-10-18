@@ -1,0 +1,26 @@
+{
+  "name": "storeinspect-workflows",
+  "displayName": "StoreInspect Workflows",
+  "version": "1.0.0",
+  "description": "Find Shopify prospects, research store technology, and enrich domain lists with StoreInspect data and masked contact previews.",
+  "author": {
+    "name": "StoreInspect",
+    "email": "support@storeinspect.com",
+    "url": "https://storeinspect.com"
+  },
+  "homepage": "https://storeinspect.com",
+  "repository": "https://github.com/StoreInspect/storeinspect-mcp",
+  "license": "MIT",
+  "keywords": [
+    "shopify",
+    "prospecting",
+    "store-research",
+    "contact-enrichment",
+    "technology"
+  ],
+  "documentationUrl": "https://storeinspect.com/docs/mcp/overview",
+  "supportUrl": "https://github.com/StoreInspect/storeinspect-mcp/issues",
+  "privacyPolicyUrl": "https://storeinspect.com/privacy",
+  "termsOfServiceUrl": "https://storeinspect.com/terms",
+  "icon": "assets/storeinspect.png"
+}

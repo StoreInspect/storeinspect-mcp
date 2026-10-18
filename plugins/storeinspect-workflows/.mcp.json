@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "storeinspect": {
+      "type": "http",
+      "url": "https://mcp.storeinspect.com/claude"
+    }
+  }
+}
