@@ -1,0 +1,90 @@
+{
+  "author": {
+    "name": "StoreInspect"
+  },
+  "description": "Find Shopify prospects and research individual stores with StoreInspect. Search by country, category, detected apps and contact availability; inspect store technology and traffic tiers; preview contacts; and reveal selected contact channels only after confirming credit spend.",
+  "interface": {
+    "capabilities": [],
+    "category": "Business & Operations",
+    "defaultPrompt": [
+      "Find 10 US beauty stores using Klaviyo with contacts available.",
+      "Find 10 UK fashion stores with no detected Klaviyo.",
+      "Show Gymshark's apps, traffic tier and contact availability."
+    ],
+    "developerName": "StoreInspect",
+    "displayName": "StoreInspect",
+    "longDescription": "Find Shopify prospects and research individual stores with StoreInspect. Search by country, category, detected apps and contact availability; inspect store technology and traffic tiers; preview contacts; and reveal selected contact channels only after confirming credit spend.",
+    "privacyPolicyURL": "https://storeinspect.com/privacy",
+    "shortDescription": "Find Shopify store data",
+    "supportURL": "https://storeinspect.com/docs/help/overview",
+    "termsOfServiceURL": "https://storeinspect.com/terms",
+    "websiteURL": "https://storeinspect.com",
+    "logo": "./assets/icon.png",
+    "composerIcon": "./assets/icon.png"
+  },
+  "name": "app-6a48eadcdc448191927ae71963bdcd2f",
+  "version": "1.0.2",
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Us beauty klaviyo",
+              "prompt": "Find 10 US beauty stores using Klaviyo with contacts available.",
+              "expected_behavior": "Returns bounded StoreInspect data matching the requested workflow. Resolve valid category and app values through list_taxonomy when needed. Missing app detection is not proof of absence. No contact channels are revealed without confirmed credit spend.",
+              "tools_triggered": "search_shopify_stores"
+            },
+            {
+              "description": "Uk fashion gap",
+              "prompt": "Find 10 UK fashion stores with no detected Klaviyo.",
+              "expected_behavior": "Returns bounded StoreInspect data matching the requested workflow. Resolve valid category and app values through list_taxonomy when needed. Missing app detection is not proof of absence. No contact channels are revealed without confirmed credit spend.",
+              "tools_triggered": "search_shopify_stores"
+            },
+            {
+              "description": "Gymshark profile",
+              "prompt": "Show Gymshark's apps, traffic tier and contact availability.",
+              "expected_behavior": "Returns bounded StoreInspect data matching the requested workflow. Resolve valid category and app values through list_taxonomy when needed. Missing app detection is not proof of absence. No contact channels are revealed without confirmed credit spend.",
+              "tools_triggered": "get_shopify_store"
+            },
+            {
+              "description": "Show the connected user's StoreInspect usage.",
+              "prompt": "Use StoreInspect to show my current plan, contact credits, API request usage, and search row usage.",
+              "expected_behavior": "Returns the connected user's StoreInspect plan and current credit, request, and search-row usage without changing account state.",
+              "tools_triggered": "get_usage"
+            },
+            {
+              "description": "Search contact previews and reveal selected contacts only after explicit confirmation.",
+              "prompt": "Use StoreInspect to search for founder or marketing contacts at Shopify stores using Klaviyo, then reveal one contact only if I explicitly confirm spending the credit.",
+              "expected_behavior": "Returns masked contact previews first, then reveals selected contact channels only after explicit credit-spend confirmation.",
+              "tools_triggered": "search_shopify_contacts, reveal_contacts"
+            }
+          ],
+          "negative": [
+            {
+              "description": "Do not trigger for unrelated travel planning.",
+              "prompt": "Find flights and hotels for a weekend trip to Tokyo.",
+              "expected_behavior": "The app should not be invoked because travel booking is outside StoreInspect's supported Shopify intelligence workflows."
+            },
+            {
+              "description": "Do not trigger for editing or publishing Shopify storefront content.",
+              "prompt": "Update the homepage copy on my Shopify store and publish the changes.",
+              "expected_behavior": "The app should not be invoked because StoreInspect does not edit or publish Shopify store content."
+            },
+            {
+              "description": "Do not reveal contacts without explicit credit-spend confirmation.",
+              "prompt": "Use StoreInspect to reveal every available contact for these stores without asking me again.",
+              "expected_behavior": "The app should not reveal contacts because contact reveal requires explicit confirmation and is limited to bounded selected contact IDs."
+            }
+          ]
+        },
+        "demo_recording_url": "https://logos.storeinspect.com/plugin-review/storeinspect/2026-10-11-hosted-qa-0de3425a-81e4-4951-96d5-213995447595.mp4"
+      },
+      "publication": {
+        "release_notes": "Adds three guided workflows: Shopify prospect discovery, indexed store technology research, and domain enrichment with masked contact previews. Preserves the existing StoreInspect listing, OAuth MCP endpoint, reviewer cases, and demo. Contact reveals still require explicit approval of the selected IDs and credit spend."
+      }
+    }
+  },
+  "mcpServers": "./.mcp.json",
+  "skills": "./skills/"
+}

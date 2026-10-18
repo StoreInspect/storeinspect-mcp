@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "storeinspect": {
+      "url": "https://mcp.storeinspect.com/openai"
+    }
+  }
+}

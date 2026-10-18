@@ -24,6 +24,8 @@ https://mcp.storeinspect.com/openai
 
 All endpoints use OAuth. Never paste StoreInspect API keys into an AI client.
 
+The [OpenAI workflow package](plugins/storeinspect-openai) adds guided prospecting, store research, and domain enrichment to the existing StoreInspect plugin.
+
 ### Claude
 
 Add a custom connector using `https://mcp.storeinspect.com/claude`, then sign in to StoreInspect when prompted. Free accounts can use the Claude connector preview.
