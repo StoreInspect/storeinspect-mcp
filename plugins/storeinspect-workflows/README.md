@@ -36,6 +36,8 @@ For a private chat or Cowork test, upload a ZIP containing this plugin folder th
 
 StoreInspect receives the domains, search filters, pagination cursors, and selected contact IDs passed to its MCP tools under the connected account. Contact details returned by an approved reveal are visible to Claude in that conversation. The plugin contains instructions and a remote MCP configuration; it has no local scripts, hooks, bundled credentials, or independent analytics.
 
+StoreInspect retains account and product records while the account is active, including reveal and credit records and privacy-safe request logs. Some security, billing, backup, and audit records can be retained longer. The retention disclosure for this service is therefore longer than 30 days; see the privacy policy for details.
+
 Contacts stay masked by default. Before a reveal, Claude must identify the selected contacts and potential credit spend and obtain explicit approval for that set. A request to find contacts or export a prospect list is not approval to reveal them. The workflows do not send outreach, sync a CRM, or make billing changes.
 
 StoreInspect searches its existing index. A request does not trigger a live scan. Missing app detection does not prove an app is absent, and traffic and revenue tiers are estimates. Unknown stores and unavailable fields remain marked as unknown.
