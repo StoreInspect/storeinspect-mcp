@@ -44,7 +44,7 @@ Read the [tool reference](https://storeinspect.com/docs/mcp/tools), [privacy pol
 
 ## Verification
 
-Run `claude plugin validate ./plugins/storeinspect-workflows --strict`. The `evals/` folder contains synthetic fixtures for workflow and credit-confirmation checks. Run those with `claude plugin eval ./plugins/storeinspect-workflows --mocks record --no-publish`; do not enable real servers for fixture tests.
+Run `claude plugin validate ./plugins/storeinspect-workflows --strict`. The repository’s `quality/storeinspect-workflows/` folder contains synthetic fixtures for workflow and credit-confirmation checks. From the repository root, run `claude plugin eval . --eval-dir quality/storeinspect-workflows --mocks record --no-publish`; do not enable real servers for fixture tests.
 
 ## License
 
